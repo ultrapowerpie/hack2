@@ -1,6 +1,3 @@
-// Do I need IO?
-//import java.io.*;
-
 import java.net.*;
 import java.io.*;
 
@@ -90,12 +87,16 @@ public class Purchase {
 		return sendPurchaseRequest(url);
 	}
 	
+	// Tester main method
 	public static void main(String[] args) throws Exception {
-		//String account_id = "asdasdas";
-		String account_id_1 = "56c66be7a73e492741508217";
-		String merchant_id_1 = "56c66be6a73e49274150762e";
+		String account_id_1 = "asdasdas";
+		String merchant_id_1 = "bad_id";
+		//String account_id_1 = "56c66be7a73e492741508217";
+		String account_id_2 = "56c66be7a73e492741508219";
+		//String merchant_id_1 = "56c66be6a73e49274150762e";
+		String merchant_id_2 = "56c66be6a73e49274150762f";
 		System.out.println(getPurchase_Account(account_id_1));
-		System.out.println(getPurchase_Merchant_Account(merchant_id_1, account_id_1));
-		System.out.println(getPurchase_Merchant(merchant_id_1));
+		System.out.println(getPurchase_Merchant_Account(merchant_id_2, account_id_1));
+		System.out.println(getPurchase_Merchant(merchant_id_2));
 	}
 }
