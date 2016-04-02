@@ -1,58 +1,70 @@
 package lib;
 
 import java.lang.StringBuilder;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
 public class PurchasesList {
-	
-	public static boolean upload(Purchases purchase) {
-		
+
+	private ArrayList<Purchases> purchasesList;
+
+	public PurchasesList(String list) {
+		this.purchasesList = new ArrayList<Purchases>();
+
+		int bracket1, bracket2;
+		String subList;
+
+		StringBuilder fullList = new StringBuilder(list);
+
+		while (fullList.indexOf("{") >= 0) {
+
+			bracket1 = fullList.indexOf("{");
+			bracket2 = fullList.indexOf("}");
+
+			subList = fullList.substring(bracket1, bracket2+1);
+			purchasesList.add(create(subList));
+
+			fullList = fullList.delete(0, bracket2+1);
+		}
+
+	}
+
+	public boolean upload(Purchases purchase) {
+
 		boolean success = false;
-		
+
 		//NOT WORKINGGGGGG
-		
+
 		return success;
 	}
-	
+
 	public static Purchases create(String json) {
 		final Gson gson = new Gson();
 		Purchases newPurchase = gson.fromJson(json, Purchases.class);
 		return newPurchase;
 	}
-	
-	public static int parse(String list) {
-		
+
+	public int uploadAll() {
+
 		int nodes = 0;
-		int bracket1, bracket2;
 		boolean success;
-		String subList;
-		
-		StringBuilder fullList = new StringBuilder(list);
-		
-		while (fullList.indexOf("{") >= 0) {
-		
-			bracket1 = fullList.indexOf("{");
-			bracket2 = fullList.indexOf("}");
-		
-			subList = fullList.substring(bracket1, bracket2+1);
-			System.out.println("Sublist:\n"+subList);
-			Purchases node = create(subList);
 
-		    //  System.out.println("Converted Java object : " + node);
-			//if (success) nodes++;
-			
-			fullList = fullList.delete(0, bracket2+1);
+		for (Purchases i : purchasesList) {
+			success = upload(i);
+			if (success) nodes++;
 		}
-		
-		return nodes;	
+		return nodes;
 	}
-	
-	public static void main(String[] args) {
-			int n = parse(args[0]);
-				
-			System.out.println(n);
-	   }
-	 
 
+	public ArrayList<Purchases> getList(){
+
+		return purchasesList;
+	}
+
+	public static void main(String[] args) {
+		int n = parse(args[0]);
+
+		System.out.println(n);
+	}
 }
