@@ -1,12 +1,12 @@
- package com.example.jackey.hack2;
+package com.example.jackey.hack2;
 
-        import android.content.Intent;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,13 +16,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.reimaginebanking.api.java.Constants.TransactionType;
 import com.reimaginebanking.api.java.NessieClient;
+import com.reimaginebanking.api.java.Main;
+import com.reimaginebanking.api.java.NessieErrorHandler;
 import com.reimaginebanking.api.java.NessieException;
 import com.reimaginebanking.api.java.NessieResultsListener;
+import com.reimaginebanking.api.java.NessieType;
 import com.reimaginebanking.api.java.models.*;
+import com.reimaginebanking.api.java.models.RequestResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_VENDOR = "com.example.heesu.mindfulmoney.VENDOR";
     public final static String EXTRA_CUSTOMER = "com.example.heesu.mindfulmoney.CUSTOMER";
-    public final static String EXTRA_PAYER_ID = "com.example.heesu.mindfulmoney.PAYER";
-    public final static String SINGLE_AVERAGE = "com.example.heesu.mindfulmoney.SINGLEAVERAGE";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
         nessieClient.getMerchants(new NessieResultsListener() {
             @Override
             public void onSuccess(Object result, NessieException e) {
@@ -97,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
                                 ListView test = (ListView) findViewById(R.id.left_drawer);
                                 ArrayList<Merchant> copy = (ArrayList<Merchant>) test.getTag();
-
                                 for (int i = a.size()-1; i >= 0; i--) {
                                     Purchase x = a.get(i);
                                     Merchant merch = getMerchantName(copy, x.getMerchant_id());
@@ -149,9 +152,9 @@ public class MainActivity extends AppCompatActivity {
 
     public Merchant getMerchantName(ArrayList<Merchant> merchants, String merchId) {
         for (Merchant x : merchants) {
-            if (x.get_id() == merchId) return x;
+            if (x.get_id().equals(merchId)) return x;
         }
-        return merchants.get(1);
+        return null;
     }
 
     @Override
@@ -164,9 +167,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
 }
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help

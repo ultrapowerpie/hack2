@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">MapsDemo</string>
-
     <string name="action_distance">Distance</string>
     <string name="action_heading">Heading</string>
 
@@ -12,7 +10,6 @@
     <string name="google_api_key">AIzaSyCUgJ1mr4y7YLS8bk-gvMVZ16DuMuCDakQ</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to login -->
     <!-- Strings related to login -->
     <string name="app_name">Mindful Money</string>
     <string name="prompt_email">Email</string>
