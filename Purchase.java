@@ -2,7 +2,7 @@ import java.net.*;
 import java.io.*;
 import javax.*;
 
-// Must throw exception for all Net functions because of exceptions caused by URL()
+// Must thrw exception for all Net functions because of exceptions caused by URL()
 // Example for http request: http://www.mkyong.com/java/how-to-send-http-request-getpost-in-java/
 // Need (?) to set property for "Accept: application/json"
 // Assuming all http requests are of format: curl -X GET --header "Accept: application/json" <URL_String>

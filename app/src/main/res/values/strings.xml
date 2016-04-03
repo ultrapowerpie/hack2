@@ -1,17 +1,30 @@
 <resources>
-    <string name="app_name">Hack2</string>
-    
+    <string name="app_name">MapsDemo</string>
+
+    <string name="action_distance">Distance</string>
+    <string name="action_heading">Heading</string>
+
+    <string name="item_clustering">Clustering</string>
+    <string name="item_heat_map">Heat Map</string>
+    <string name="item_polylines">Polyline Decoding</string>
+    <string name="item_spherical_geometry">Spherical Geometry Utils</string>
+
+    <string name="google_api_key">AIzaSyCUgJ1mr4y7YLS8bk-gvMVZ16DuMuCDakQ</string>
+    <string name="title_activity_login">Sign in</string>
+
     <!-- Strings related to login -->
+    <!-- Strings related to login -->
+    <string name="app_name">Mindful Money</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="invalid_email">This email address is invalid</string>
+    <string name="invalid_password">Password is too short</string>
+    <string name="incorrect_password">Password is incorrect</string>
+    <string name="field_required">This field is required</string>
+    <string name="title_activity_scrolling">History of Your Purchases</string>
+    <string name="testing_things">"this is test string\n\n\n\n\n\n\n\n\n</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_stats">Statistics for this Merchant</string>
+
 </resources>

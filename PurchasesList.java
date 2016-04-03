@@ -63,7 +63,7 @@ public class PurchasesList {
 	}
 
 	public static void main(String[] args) {
-		int n = parse(args[0]);
+		int n = uploadAll(args[0]);
 
 		System.out.println(n);
 	}
